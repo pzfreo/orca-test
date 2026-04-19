@@ -1,0 +1,2 @@
+-r requirements.txt
+estampo==0.3.1

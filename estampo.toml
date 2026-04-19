@@ -1,0 +1,36 @@
+[pipeline]
+stages = ["load", "arrange", "plate", "slice", "pack", "gcode-info"]
+
+[plate]
+size = [256, 256]
+
+[slicer]
+engine = "orca"
+version = "2.3.1"
+
+[slicer.orca]
+printer = "Bambu Lab P1S 0.4 nozzle"
+process = "0.12mm High Quality @BBL P1P"
+filaments = ["Generic PLA @base"]
+
+[slicer.orca.overrides]
+xy_hole_compensation = "0.1"
+xy_contour_compensation = "-0.05"
+outer_wall_speed = "30"
+
+[pack]
+command = "bambox repack {sliced_3mf}"
+output = "{sliced_3mf}"
+docker = true
+
+[[parts]]
+file = "build/plate_20x20x4.5mm.step"
+
+[[parts]]
+file = "build/plate_20x20x5mm.step"
+
+[[parts]]
+file = "build/plate_20x20x5.5mm.step"
+
+[[parts]]
+file = "build/plate_20x20x6mm.step"
