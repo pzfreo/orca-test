@@ -10,10 +10,10 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
@@ -25,6 +25,6 @@ jobs:
       - name: Generate STEP files
         run: python generate_plates.py
 
-      - uses: estampo/estampo/action@v1
+      - uses: estampo/estampo/action@v0
         with:
           config: estampo.toml
