@@ -1,2 +1,2 @@
 -r requirements.txt
-estampo==0.4.3
+estampo==0.4.4
